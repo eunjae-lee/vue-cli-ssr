@@ -24,6 +24,7 @@ module.exports = {
     "consistent-return": "off",
     "array-callback-return": "off",
     quotes: "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "object-curly-newline": "off"
   }
 };

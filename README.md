@@ -15,7 +15,7 @@ yarn build
 yarn start
 ```
 
-Open http://localhost:3000/about and check the logs
+Open http://localhost:3000/search and check the logs
 
 - If it's server-side rendered, the log will be on the terminal.
 - If it's client-side rendered, the log will be on the browser.
