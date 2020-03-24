@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node -r dotenv/config app.js",
     "prebuild": "rm -rf public/{js,css,fonts,img}",
-    "build": "npm run build:client && npm run build:server",
+    "build": "yarn build:client && yarn build:server",
     "postbuild": "rm public/index.html",
     "build:client": "TARGET_ENV='client' vue-cli-service build --no-clean",
     "build:server": "TARGET_ENV='server' vue-cli-service build --no-clean"
@@ -29,6 +29,7 @@
     "@vue/cli-service": "^4.2.3",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
+    "concurrently": "5.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
