@@ -4,13 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node -r dotenv/config app.js",
-    "serve": "vue-cli-service serve",
     "prebuild": "rm -rf public/{js,css,fonts,img}",
     "build": "npm run build:client && npm run build:server",
     "postbuild": "rm public/index.html",
     "build:client": "TARGET_ENV='client' vue-cli-service build --no-clean",
-    "build:server": "TARGET_ENV='server' vue-cli-service build --no-clean",
-    "lint": "vue-cli-service lint"
+    "build:server": "TARGET_ENV='server' vue-cli-service build --no-clean"
   },
   "dependencies": {
     "core-js": "^3.6.4",
