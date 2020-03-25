@@ -1,5 +1,7 @@
 <template>
   <div id="search">
+    <child1 name="Eunjae" :age="10" />
+    <child2 :city="city" />
     <ul class="list">
       <li v-for="(hit, index) in hits" :key="index">
         <p class="name">{{ hit.name }}</p>
@@ -10,7 +12,20 @@
 </template>
 
 <script>
+import Child1 from "../components/Child1.vue";
+import Child2 from "../components/Child2.vue";
+
 export default {
+  name: "Search",
+  components: {
+    Child1,
+    Child2
+  },
+  data() {
+    return {
+      city: "Paris"
+    };
+  },
   computed: {
     hits() {
       return this.$store.state.search.result.hits || [];
