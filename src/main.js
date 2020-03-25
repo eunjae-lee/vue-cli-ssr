@@ -1,12 +1,12 @@
-import { sync } from 'vuex-router-sync';
-import Vue from 'vue';
-import App from './App.vue';
-import { createRouter } from './router';
-import { createStore } from './store';
+import { sync } from "vuex-router-sync";
+import Vue from "vue";
+import App from "./App.vue";
+import { createRouter } from "./router";
+import { createStore } from "./store";
 
 Vue.config.productionTip = false;
 
-export const createApp = (context) => {
+export const createApp = context => {
   // create router and store instances
   const router = createRouter();
   const store = createStore();
@@ -15,10 +15,12 @@ export const createApp = (context) => {
   sync(store, router);
 
   const app = new Vue({
-    data: { url: context ? context.url : '' },
+    data: { url: context ? context.url : "" },
     router,
     store,
-    render: h => h(App),
+    render: h => {
+      return h(App);
+    }
   });
 
   return { app, router, store };

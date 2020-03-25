@@ -1,6 +1,6 @@
 // runs in browser only
 
-import { createApp } from './main';
+import { createApp } from "./main";
 
 const { app, router, store } = createApp();
 
@@ -10,5 +10,5 @@ if (window.__INITIAL_STATE__) {
 }
 
 router.onReady(() => {
-  app.$mount('#app');
+  app.$mount("#app");
 });
