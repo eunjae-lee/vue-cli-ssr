@@ -39,7 +39,7 @@ export const createStore = () => {
             page: undefined,
             nbPages: undefined,
             hitsPerPage: undefined,
-            query: "a"
+            query: undefined
           }
         }),
         mutations: {
@@ -49,7 +49,7 @@ export const createStore = () => {
         },
         actions: {
           search({ commit }, { query }) {
-            index.search(query).then(({ hits, nbHits, page, nbPages, hitsPerPage }) => {
+            return index.search(query).then(({ hits, nbHits, page, nbPages, hitsPerPage }) => {
               commit("setResult", { hits, nbHits, page, nbPages, hitsPerPage, query });
             });
           }
