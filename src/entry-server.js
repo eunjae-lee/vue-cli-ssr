@@ -2,12 +2,27 @@
 
 import { createApp } from "./main";
 
+const getComponentTree = component => {
+  const name = component.$options.name || component.$options._componentTag;
+  console.log("name:", name);
+  const props = component.$attrs;
+  const children = component.$children.map(getComponentTree);
+  return {
+    name,
+    props,
+    children
+  };
+};
+
 export default context => {
   // since there could potentially be asynchronous route hooks or components,
   // we will be returning a Promise so that the server can wait until
   // everything is ready before rendering.
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp();
+    const result = app.$mount();
+    console.log({ result });
+    console.log(JSON.stringify(getComponentTree(app), null, 2));
 
     // set server-side router's location
     router.push(context.url);

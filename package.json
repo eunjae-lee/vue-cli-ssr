@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node -r dotenv/config app.js",
+    "serve": "vue-cli-service serve",
     "prebuild": "rm -rf public/{js,css,fonts,img}",
     "build": "yarn build:client && yarn build:server",
     "postbuild": "rm public/index.html",
