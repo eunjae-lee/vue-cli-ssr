@@ -19,3 +19,5 @@ Open http://localhost:3000/search and check the logs
 
 - If it's server-side rendered, the log will be on the terminal.
 - If it's client-side rendered, the log will be on the browser.
+
+With `yarn serve`, SSR won't work.
