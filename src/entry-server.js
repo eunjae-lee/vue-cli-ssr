@@ -4,7 +4,6 @@ import { createApp } from "./main";
 
 const getComponentTree = component => {
   const name = component.$options.name || component.$options._componentTag;
-  console.log("name:", name);
   const props = component.$attrs;
   const children = component.$children.map(getComponentTree);
   return {
@@ -20,9 +19,6 @@ export default context => {
   // everything is ready before rendering.
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp();
-    const result = app.$mount();
-    console.log({ result });
-    console.log(JSON.stringify(getComponentTree(app), null, 2));
 
     // set server-side router's location
     router.push(context.url);
@@ -35,7 +31,10 @@ export default context => {
       // When we attach the state to the context, and the `template` option
       // is used for the renderer, the state will automatically be
       // serialized and injected into the HTML as `window.__INITIAL_STATE__`.
-      context.rendered = () => (context.state = store.state);
+      context.rendered = () => {
+        console.log(JSON.stringify(getComponentTree(app.$root), null, 2));
+        context.state = store.state;
+      };
       // no matched routes, reject with 404
       const matchedComponents = router.getMatchedComponents();
       if (matchedComponents.length === 0) {
