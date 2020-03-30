@@ -34,6 +34,7 @@ export default context => {
       context.rendered = () => {
         console.log(JSON.stringify(getComponentTree(app.$root), null, 2));
         context.state = store.state;
+        context.algoliaState = { server: { side: { search: { result: [1, 2, 3] } } } };
       };
       // no matched routes, reject with 404
       const matchedComponents = router.getMatchedComponents();
